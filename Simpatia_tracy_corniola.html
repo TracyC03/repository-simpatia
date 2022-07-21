@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="UTF-8">
+       <title> Grado di simpatia </title>
+       <style>
+        button{
+		    background-color: darkgoldenrod;
+            font-weight: bold;
+		    cursor:pointer;
+            border-radius: 5px;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+	    }
+        button:hover{
+            background-color: gold;
+            color: red;
+        }
+        input[type=number]{
+		    background-color: darkgoldenrod;
+		    cursor:pointer;
+            border-radius: 5px;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+	    }
+        h1{
+            color:brown; 
+            text-align:center;
+        }
+        body{
+            font-family:Georgia, Times New Roman , Times, serif; 
+            font-size:large; 
+            background-color: khaki; 
+            padding:50px;
+            text-align: center;
+            font-weight: bold;
+        }
+       </style>
+       <script>
+            function Verifica_numero(){
+                let numero= document.getElementById("simpatia").value;
+                let risposta=document.getElementById("numero");
+                var imgArray = new Array();
+                imgArray[0] = "emoji_delusa.jpg";
+                imgArray[1] = "emoji_allegra.jpg";
+                imgArray[2] = "emoji_sorridente.jpg";
+                var i=0;
+                if(numero<=0){
+                    risposta.innerHTML="Non fai per niente ridere! Voto: " + numero + ".";
+                    i=0;
+                    document.getElementById("image").src=imgArray[i];
+                } else if(numero<=10){
+                    risposta.innerHTML="Sei molto divertente, ma potresti fare di più! Voto: " + numero + ".";
+                    i=1;
+                    document.getElementById("image").src=imgArray[i];
+                }else{
+                    risposta.innerHTML="Sei così comico che potresti andare al circo! Voto: " + numero + ".";
+                    i=2;
+                    document.getElementById("image").src=imgArray[i];
+                }
+            }
+       </script>
+    </head>
+    <body>
+        <div id="container">
+            <h1> TEST SIMPATIA </h1>
+            <p> Testiamo quanto sei simpatico/a!! </p>
+            <label for="simpatia">Scegli un numero:</label>
+            <br><br>
+            <input type="number"id="simpatia">
+            <button onclick="Verifica_numero()">VERIFICA</button>
+            <p id="numero"></p>
+            <img src="" id="image">
+        </div>
+    </body>
+</html>
